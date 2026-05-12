@@ -4,947 +4,483 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Co-benefits of Climate Actions - Datafest 2025</title>
-
 <style>
-  /* A0 = 841mm x 1189mm — set at 96dpi equivalent for screen preview */
-  :root {
-    --green-deep:  #1a4a2e;
-    --green-mid:   #2d7a4f;
-    --green-light: #4caf78;
-    --green-pale:  #e8f5ed;
-    --red:         #b84040;
-    --red-pale:    #fdeaea;
-    --blue:        #3a6fa8;
-    --blue-pale:   #e8eef6;
-    --amber:       #e67e22;
-    --purple:      #6a1b9a;
-    --grey:        #f0f0f0;
-    --ink:         #111;
-    --ink-mid:     #444;
-    --ink-light:   #888;
-  }
+@page { size: A0 portrait; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  width: 841mm;
+  color: #111;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
 
-  @page {
-    size: A0 portrait;
-    margin: 0;
-  }
+/* ── TOP BAR ── */
+.top-bar {
+  height: 8mm;
+  background: linear-gradient(90deg,#1a4a2e 0%,#2d7a4f 35%,#3a6fa8 68%,#b84040 100%);
+}
 
-  body {
-    width: 100%;
-    max-width: 841mm;
-    min-height: auto;
-    font-family: -apple-system, 'Segoe UI', Arial, Helvetica, sans-serif;
-    background: #fff;
-    color: var(--ink);
-    font-size: 11pt;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+/* ── HEADER ── */
+.header {
+  background: #1a4a2e;
+  padding: 10mm 14mm 9mm;
+}
+.header table { width: 100%; border-collapse: collapse; }
+.header td { vertical-align: bottom; padding: 0; border: none; background: transparent; }
+.eyebrow { font-size: 8pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4caf78; margin-bottom: 3mm; }
+.hdr-title { font-family: Georgia, serif; font-size: 38pt; color: #fff; line-height: 1.1; font-weight: 400; }
+.hdr-title em { font-style: italic; color: #4caf78; }
+.hdr-sub { font-size: 11pt; color: rgba(255,255,255,0.6); margin-top: 3mm; }
+.hdr-stat { font-family: Georgia, serif; font-size: 58pt; color: #4caf78; line-height: 1; text-align: right; }
+.hdr-stat-lbl { font-size: 9pt; color: rgba(255,255,255,0.5); text-align: right; margin-top: 2mm; }
 
-  /* ── GRADIENT TOP BAR ─────────────────────── */
-  .top-bar {
-    height: 8mm;
-    background: linear-gradient(90deg, var(--green-deep) 0%, var(--green-mid) 35%, var(--blue) 68%, var(--red) 100%);
-  }
+/* ── INSIGHT BAND ── */
+.insight-band {
+  background: #e8f5ed;
+  border-left: 6mm solid #4caf78;
+  padding: 5mm 14mm;
+}
+.insight-band table { width: 100%; border-collapse: collapse; }
+.insight-band td { vertical-align: middle; padding: 0; border: none; background: transparent; }
+.insight-lbl { font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1a4a2e; white-space: nowrap; padding-right: 6mm; width: 28mm; }
+.insight-txt { font-size: 10.5pt; color: #1a4a2e; line-height: 1.5; }
 
-  /* ── HEADER ───────────────────────────────── */
-  .header {
-    background: var(--green-deep);
-    padding: 14mm 16mm 12mm;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 10mm;
-  }
-  .header-eyebrow {
-    font-size: 9pt;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--green-light);
-    margin-bottom: 3mm;
-  }
-  .header-title {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 42pt;
-    color: #fff;
-    line-height: 1.1;
-    font-weight: 400;
-  }
-  .header-title em { font-style: italic; color: var(--green-light); }
-  .header-sub {
-    font-size: 12pt;
-    color: rgba(255,255,255,0.6);
-    margin-top: 3mm;
-    font-weight: 300;
-  }
-  .header-right {
-    text-align: right;
-  }
-  .header-stat-big {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 64pt;
-    color: var(--green-light);
-    line-height: 1;
-  }
-  .header-stat-label {
-    font-size: 10pt;
-    color: rgba(255,255,255,0.55);
-    margin-top: 1mm;
-  }
+/* ── MAIN LAYOUT ── */
+.main-wrap { padding: 6mm 8mm; }
+.main-table { width: 100%; border-collapse: separate; border-spacing: 4mm; }
+.main-table td { vertical-align: top; padding: 0; border: none; background: transparent; }
 
-  /* ── KEY INSIGHT BAND ────────────────────── */
-  .insight-band {
-    background: var(--green-pale);
-    border-left: 6mm solid var(--green-light);
-    padding: 6mm 16mm;
-    display: flex;
-    align-items: center;
-    gap: 8mm;
-  }
-  .insight-band-label {
-    font-size: 8pt;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--green-deep);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .insight-band-text {
-    font-size: 11.5pt;
-    color: var(--green-deep);
-    line-height: 1.5;
-  }
-  .insight-band-text strong { font-weight: 700; }
+/* ── CARD ── */
+.card { border: 0.4mm solid #e0e0e0; border-radius: 2mm; overflow: hidden; background: #fff; }
+.card-hdr { padding: 3.5mm 5mm; display: table; width: 100%; }
+.card-hdr-inner { display: table-row; }
+.card-hdr-icon { display: table-cell; vertical-align: middle; width: 8mm; padding-right: 2mm; }
+.card-hdr-icon svg { width: 5mm; height: 5mm; }
+.icon-box { width: 7mm; height: 7mm; background: rgba(255,255,255,0.18); border-radius: 1.5mm; display: inline-flex; align-items: center; justify-content: center; }
+.card-hdr-title { display: table-cell; vertical-align: middle; font-size: 11pt; font-weight: 700; color: #fff; }
+.card-hdr-title em { font-style: italic; font-weight: 400; color: rgba(255,255,255,0.75); }
+.card-hdr.green  { background: #1a4a2e; }
+.card-hdr.blue   { background: #3a6fa8; }
+.card-hdr.amber  { background: #d4830a; }
+.card-hdr.purple { background: #6a1b9a; }
+.card-hdr.teal   { background: #2d7a4f; }
+.card-body { padding: 4mm 5mm; }
 
-  /* ── MAIN GRID ────────────────────────────── */
-  .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 0;
-    padding: 8mm 10mm;
-    column-gap: 6mm;
-    row-gap: 6mm;
-  }
+/* ── BODY TEXT ── */
+.body-text { font-size: 8.5pt; line-height: 1.55; color: #444; margin-bottom: 3mm; }
+.body-text strong { color: #1a4a2e; }
 
-  /* ── SECTION CARD ─────────────────────────── */
-  .card {
-    background: #fff;
-    border-radius: 3mm;
-    border: 0.5mm solid #e0e0e0;
-    overflow: hidden;
-  }
-  .card-header {
-    background: var(--green-deep);
-    padding: 4mm 6mm;
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-  }
-  .card-header.blue  { background: var(--blue); }
-  .card-header.red   { background: var(--red); }
-  .card-header.amber { background: var(--amber); }
-  .card-header.purple { background: var(--purple); }
-  .card-header-icon {
-    width: 8mm; height: 8mm;
-    background: rgba(255,255,255,0.15);
-    border-radius: 2mm;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .card-header-icon svg { width: 5mm; height: 5mm; }
-  .card-title {
-    font-size: 12pt;
-    font-weight: 700;
-    color: #fff;
-  }
-  .card-title em { font-style: italic; color: rgba(255,255,255,0.75); font-weight: 400; }
-  .card-body { padding: 5mm 6mm; }
+/* ── BENEFIT MINI CARDS (2x5 table) ── */
+.benefit-tbl { width: 100%; border-collapse: separate; border-spacing: 2mm; }
+.benefit-tbl td { vertical-align: top; padding: 0; border: none; background: transparent; width: 20%; }
+.ben-card { background: #fafafa; border: 0.3mm solid #e8e8e8; border-radius: 1.5mm; padding: 2.5mm 3mm; }
+.ben-name { font-size: 7pt; font-weight: 600; color: #444; line-height: 1.3; min-height: 8mm; }
+.ben-val { font-size: 17pt; font-weight: 700; color: #1a4a2e; line-height: 1; margin-top: 2mm; }
+.ben-val.neg { color: #b84040; }
+.ben-icon { width: 7mm; height: 7mm; border-radius: 1.5mm; display: inline-flex; align-items: center; justify-content: center; float: right; margin-top: -5mm; }
+.ben-icon svg { width: 4.5mm; height: 4.5mm; }
 
-  /* ── CO-BENEFIT VALUE CARDS ──────────────── */
-  .benefit-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3mm;
-  }
-  .benefit-card {
-    background: #fafafa;
-    border: 0.4mm solid #e8e8e8;
-    border-radius: 2mm;
-    padding: 3mm 3.5mm;
-    display: flex;
-    flex-direction: column;
-    gap: 2mm;
-  }
-  .benefit-name {
-    font-size: 8pt;
-    font-weight: 600;
-    color: var(--ink-mid);
-    line-height: 1.3;
-    min-height: 8mm;
-  }
-  .benefit-val {
-    font-size: 20pt;
-    font-weight: 700;
-    color: var(--green-deep);
-    line-height: 1;
-  }
-  .benefit-val.neg { color: var(--red); }
-  .benefit-icon {
-    width: 9mm; height: 9mm;
-    border-radius: 2mm;
-    display: flex; align-items: center; justify-content: center;
-    align-self: flex-end;
-  }
-  .benefit-icon svg { width: 5.5mm; height: 5.5mm; }
-  .benefit-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
+/* ── CALLOUT ── */
+.callout {
+  background: linear-gradient(135deg,#e8f5ed,#e8eef6);
+  border-left: 2.5mm solid #4caf78;
+  border-radius: 0 1.5mm 1.5mm 0;
+  padding: 3mm 4mm;
+  margin: 3mm 0;
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: #1a4a2e;
+}
+.callout strong { font-weight: 700; }
 
-  /* ── SANKEY PLACEHOLDER ──────────────────── */
-  .sankey-area {
-    background: var(--grey);
-    border-radius: 2mm;
-    padding: 4mm;
-    min-height: 80mm;
-    display: flex;
-    flex-direction: column;
-    gap: 2mm;
-  }
-  .sankey-row {
-    display: flex;
-    align-items: center;
-    gap: 2mm;
-    height: 7mm;
-  }
-  .sankey-label {
-    font-size: 7.5pt;
-    font-weight: 600;
-    color: var(--ink-mid);
-    width: 45mm;
-    flex-shrink: 0;
-    text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .sankey-bar-wrap {
-    flex: 1;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  .sankey-bar {
-    height: 70%;
-    border-radius: 0 1mm 1mm 0;
-    position: absolute;
-    left: 30%;
-  }
-  .sankey-bar.pos { background: var(--green-mid); opacity: 0.85; }
-  .sankey-bar.neg { background: var(--red); opacity: 0.85; left: auto; right: 70%; border-radius: 1mm 0 0 1mm; }
-  .sankey-zero { position: absolute; left: 30%; top: 0; bottom: 0; width: 0.3mm; background: #bbb; }
-  .sankey-val {
-    font-size: 7pt;
-    color: var(--ink-light);
-    width: 14mm;
-    text-align: right;
-    flex-shrink: 0;
-  }
-  .sankey-val.neg { color: var(--red); }
-  .sankey-right-label {
-    font-size: 7.5pt;
-    font-weight: 600;
-    color: var(--blue);
-    width: 30mm;
-    flex-shrink: 0;
-  }
+/* ── DIVIDER ── */
+.divider { height: 0.3mm; background: #e8e8e8; margin: 3mm 0; }
 
-  /* ── PATHWAY TABLE ───────────────────────── */
-  .pathway-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 8.5pt;
-  }
-  .pathway-table th {
-    background: var(--green-deep);
-    color: #fff;
-    font-size: 7.5pt;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 2.5mm 3mm;
-    text-align: left;
-  }
-  .pathway-table td {
-    padding: 2.5mm 3mm;
-    border-bottom: 0.3mm solid #eee;
-    vertical-align: top;
-    color: var(--ink-mid);
-    line-height: 1.4;
-  }
-  .pathway-table tr:nth-child(even) td { background: #fafafa; }
-  .pathway-table tr:last-child td { border-bottom: none; }
-  .pw-name { font-weight: 700; color: var(--green-deep); }
-  .pw-cat {
-    display: inline-block;
-    font-size: 6.5pt;
-    font-weight: 700;
-    padding: 0.5mm 2mm;
-    border-radius: 10mm;
-    margin-left: 1mm;
-    vertical-align: middle;
-  }
-  .pw-cat.health { background: var(--green-pale); color: var(--green-mid); }
-  .pw-cat.damage { background: var(--blue-pale); color: var(--blue); }
+/* ── SANKEY ROWS ── */
+.flow-tbl { width: 100%; border-collapse: collapse; }
+.flow-tbl td { padding: 1mm 0; border: none; background: transparent; vertical-align: middle; }
+.flow-label { font-size: 7.5pt; font-weight: 600; color: #444; width: 42mm; text-align: right; padding-right: 2mm; white-space: nowrap; }
+.flow-track { position: relative; height: 5mm; background: #f0f0f0; border-radius: 0.5mm; }
+.flow-bar-pos { position: absolute; left: 30%; top: 0.5mm; bottom: 0.5mm; background: #2d7a4f; border-radius: 0 1mm 1mm 0; opacity: 0.85; }
+.flow-bar-neg { position: absolute; right: 70%; top: 0.5mm; bottom: 0.5mm; background: #b84040; border-radius: 1mm 0 0 1mm; opacity: 0.85; }
+.flow-zero { position: absolute; left: 30%; top: 0; bottom: 0; width: 0.3mm; background: #aaa; }
+.flow-val { font-size: 7pt; color: #888; width: 16mm; text-align: right; padding-left: 2mm; white-space: nowrap; }
+.flow-val.neg { color: #b84040; }
+.flow-right { font-size: 7.5pt; font-weight: 600; color: #3a6fa8; width: 28mm; padding-left: 2mm; }
+.flow-area { width: 100%; }
 
-  /* ── LA TABLE ────────────────────────────── */
-  .la-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 9pt;
-  }
-  .la-table th {
-    background: var(--green-deep);
-    color: #fff;
-    font-size: 7.5pt;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 2.5mm 3mm;
-    text-align: left;
-  }
-  .la-table td {
-    padding: 2mm 3mm;
-    border-bottom: 0.3mm solid #eee;
-    vertical-align: middle;
-  }
-  .la-table tr:nth-child(even) td { background: #fafafa; }
-  .la-rank {
-    font-size: 8pt;
-    font-weight: 700;
-    color: var(--ink-light);
-    width: 6mm;
-  }
-  .la-name { font-weight: 600; color: var(--green-deep); }
-  .la-val { font-weight: 700; color: var(--green-mid); text-align: right; }
-  .la-bar-cell { width: 30mm; }
-  .la-bar-track { height: 3mm; background: #eee; border-radius: 1mm; overflow: hidden; }
-  .la-bar-fill { height: 100%; background: var(--green-mid); border-radius: 1mm; }
+/* ── STAT BOXES ── */
+.stat-tbl { width: 100%; border-collapse: separate; border-spacing: 2mm; margin: 2mm 0; }
+.stat-tbl td { vertical-align: top; padding: 0; border: none; background: transparent; }
+.stat-box { background: #fafafa; border: 0.3mm solid #e0e0e0; border-radius: 1.5mm; padding: 3mm 4mm; }
+.stat-val { font-size: 18pt; font-weight: 700; color: #1a4a2e; line-height: 1; }
+.stat-val.blue { color: #3a6fa8; }
+.stat-val.green { color: #2d7a4f; }
+.stat-val.red { color: #b84040; }
+.stat-lbl { font-size: 7pt; color: #999; margin-top: 1mm; line-height: 1.3; }
 
-  /* ── CONTRIBUTION % ─────────────────────── */
-  .contrib-row {
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-    margin-bottom: 2mm;
-  }
-  .contrib-name { font-size: 8.5pt; color: var(--ink-mid); width: 45mm; flex-shrink: 0; }
-  .contrib-bar-track { flex: 1; height: 4mm; background: #eee; border-radius: 1mm; overflow: hidden; }
-  .contrib-bar-fill { height: 100%; border-radius: 1mm; }
-  .contrib-pct { font-size: 8.5pt; font-weight: 700; color: var(--ink-mid); width: 14mm; text-align: right; flex-shrink: 0; }
+/* ── LA TABLE ── */
+.la-tbl { width: 100%; border-collapse: collapse; font-size: 8pt; }
+.la-tbl th { background: #1a4a2e; color: #fff; font-size: 7pt; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2mm 2.5mm; text-align: left; }
+.la-tbl td { padding: 1.8mm 2.5mm; border-bottom: 0.3mm solid #eee; vertical-align: middle; }
+.la-tbl tr:nth-child(even) td { background: #fafafa; }
+.la-name { font-weight: 600; color: #1a4a2e; }
+.la-val { font-weight: 700; color: #2d7a4f; text-align: right; }
+.la-bar-wrap { width: 25mm; }
+.la-bar-track { height: 2.5mm; background: #eee; border-radius: 1mm; }
+.la-bar-fill { height: 100%; background: #2d7a4f; border-radius: 1mm; }
 
-  /* ── STAT BOXES ──────────────────────────── */
-  .stat-boxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3mm;
-    margin-bottom: 4mm;
-  }
-  .stat-box {
-    background: #fafafa;
-    border: 0.4mm solid #e0e0e0;
-    border-radius: 2mm;
-    padding: 3.5mm 4mm;
-  }
-  .stat-box-val {
-    font-size: 22pt;
-    font-weight: 700;
-    color: var(--green-deep);
-    line-height: 1;
-  }
-  .stat-box-val.blue { color: var(--blue); }
-  .stat-box-val.red  { color: var(--red); }
-  .stat-box-label { font-size: 7.5pt; color: var(--ink-light); margin-top: 1mm; line-height: 1.3; }
+/* ── CONTRIB ROWS ── */
+.contrib-tbl { width: 100%; border-collapse: collapse; }
+.contrib-tbl td { padding: 1mm 0; border: none; background: transparent; vertical-align: middle; }
+.contrib-name { font-size: 7.5pt; color: #444; width: 40mm; }
+.contrib-track-cell { padding: 0 2mm; }
+.contrib-track { height: 3.5mm; background: #eee; border-radius: 1mm; overflow: hidden; }
+.contrib-fill { height: 100%; border-radius: 1mm; }
+.contrib-pct { font-size: 7.5pt; font-weight: 700; color: #444; width: 12mm; text-align: right; white-space: nowrap; }
 
-  /* ── CALLOUT ─────────────────────────────── */
-  .callout {
-    background: linear-gradient(135deg, var(--green-pale), var(--blue-pale));
-    border-left: 3mm solid var(--green-light);
-    border-radius: 0 2mm 2mm 0;
-    padding: 4mm 5mm;
-    margin: 3mm 0;
-    font-size: 9.5pt;
-    line-height: 1.55;
-    color: var(--green-deep);
-  }
-  .callout strong { font-weight: 700; }
+/* ── PATHWAY TABLE ── */
+.pw-tbl { width: 100%; border-collapse: collapse; font-size: 7.5pt; }
+.pw-tbl th { background: #1a4a2e; color: #fff; font-size: 7pt; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2mm 2.5mm; text-align: left; }
+.pw-tbl td { padding: 2mm 2.5mm; border-bottom: 0.3mm solid #eee; vertical-align: top; color: #444; line-height: 1.4; }
+.pw-tbl tr:nth-child(even) td { background: #fafafa; }
+.pw-name { font-weight: 700; color: #1a4a2e; }
+.pw-cat { display: inline-block; font-size: 6pt; font-weight: 700; padding: 0.5mm 1.5mm; border-radius: 5mm; }
+.pw-cat.h { background: #e8f5ed; color: #2d7a4f; }
+.pw-cat.d { background: #e8eef6; color: #3a6fa8; }
+.formula-cell { font-family: 'Courier New', monospace; font-size: 7pt; color: #2d5a2e; background: #f0f7f0; padding: 1mm 1.5mm; border-radius: 1mm; }
 
-  /* ── LEGEND ──────────────────────────────── */
-  .legend {
-    display: flex;
-    gap: 6mm;
-    flex-wrap: wrap;
-    padding: 2mm 0;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 2mm;
-    font-size: 8pt;
-    color: var(--ink-mid);
-  }
-  .legend-dot {
-    width: 3mm; height: 3mm;
-    border-radius: 0.5mm;
-    flex-shrink: 0;
-  }
+/* ── LEGEND ── */
+.legend-tbl { border-collapse: collapse; }
+.legend-tbl td { padding: 0 3mm 0 0; border: none; background: transparent; vertical-align: middle; font-size: 8pt; color: #555; white-space: nowrap; }
+.leg-dot { width: 3mm; height: 3mm; border-radius: 0.5mm; display: inline-block; margin-right: 1.5mm; vertical-align: middle; }
 
-  /* ── SECTION SPANS ───────────────────────── */
-  .span-2 { grid-column: span 2; }
-  .span-3 { grid-column: span 3; }
+/* ── FOOTER ── */
+.footer {
+  background: #1a4a2e;
+  padding: 5mm 14mm;
+}
+.footer table { width: 100%; border-collapse: collapse; }
+.footer td { vertical-align: middle; padding: 0; border: none; background: transparent; }
+.ft { font-size: 8.5pt; font-weight: 700; color: #fff; }
+.ft-sub { font-size: 7.5pt; color: rgba(255,255,255,0.5); margin-top: 1mm; }
+.logo-box { display: inline-block; background: rgba(255,255,255,0.12); border-radius: 1.5mm; padding: 1.5mm 3.5mm; font-size: 7.5pt; font-weight: 700; color: rgba(255,255,255,0.7); margin-left: 2mm; }
+.qr-box { width: 20mm; height: 20mm; background: rgba(255,255,255,0.1); border-radius: 1.5mm; display: inline-block; text-align: center; padding-top: 5mm; font-size: 6.5pt; color: rgba(255,255,255,0.35); }
 
-  /* ── DIVIDER ─────────────────────────────── */
-  .divider {
-    height: 0.3mm;
-    background: #e0e0e0;
-    margin: 3mm 0;
-  }
-
-  /* ── FOOTER ──────────────────────────────── */
-  .footer {
-    background: var(--green-deep);
-    padding: 5mm 16mm;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10mm;
-    margin-top: 4mm;
-  }
-  .footer-left { }
-  .footer-title {
-    font-size: 10pt;
-    font-weight: 700;
-    color: #fff;
-  }
-  .footer-sub {
-    font-size: 8pt;
-    color: rgba(255,255,255,0.5);
-    margin-top: 1mm;
-  }
-  .footer-qr {
-    width: 22mm; height: 22mm;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7pt;
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-  }
-  .footer-logos {
-    display: flex;
-    gap: 5mm;
-    align-items: center;
-  }
-  .footer-logo-box {
-    background: rgba(255,255,255,0.12);
-    border-radius: 2mm;
-    padding: 2mm 4mm;
-    font-size: 8pt;
-    font-weight: 700;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.5px;
-  }
-
-  /* ── PRINT ───────────────────────────────── */
-  @media print {
-    body { width: 841mm; }
-    .top-bar, .header, .insight-band, .main, .footer { break-inside: avoid; }
-  }
-
-  p { line-height: 1.6; font-size: 9.5pt; color: var(--ink-mid); }
-  .body-text { font-size: 9pt; line-height: 1.6; color: var(--ink-mid); margin-bottom: 3mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { width: 841mm !important; }
+  .card { break-inside: avoid; }
+}
 </style>
 </head>
-<body style="background:#ffffff;">
+<body>
 
-<!-- TOP GRADIENT BAR -->
+<!-- TOP BAR -->
 <div class="top-bar"></div>
 
 <!-- HEADER -->
 <div class="header">
-  <div>
-    <div class="header-eyebrow">UK Co-Benefits Atlas · Datafest Exhibition 2025</div>
-    <div class="header-title">Co-benefits of <em>Climate Actions</em><br>and their Monetised Values</div>
-    <div class="header-sub">United Kingdom · 2025–2050 · Health, Wellbeing &amp; Economic Value of Net Zero</div>
-  </div>
-  <div class="header-right">
-    <div class="header-stat-big">£145.6bn</div>
-    <div class="header-stat-label">Overall co-benefit value by 2050 · 11 benefits tracked</div>
-  </div>
+  <table><tr>
+    <td style="width:70%">
+      <div class="eyebrow">UK Co-Benefits Atlas &middot; Datafest Exhibition 2025</div>
+      <div class="hdr-title">Co-benefits of <em>Climate Actions</em><br>and their Monetised Values</div>
+      <div class="hdr-sub">United Kingdom &middot; 2025&ndash;2050 &middot; Health, Wellbeing &amp; Economic Value of Net Zero</div>
+    </td>
+    <td style="width:30%;text-align:right;vertical-align:bottom">
+      <div class="hdr-stat">&pound;145.6bn</div>
+      <div class="hdr-stat-lbl">Overall co-benefit value by 2050 &middot; 11 benefits &middot; 361 local authorities</div>
+    </td>
+  </tr></table>
 </div>
 
-<!-- KEY INSIGHT BAND -->
+<!-- INSIGHT BAND -->
 <div class="insight-band">
-  <div class="insight-band-label">&#128161; Key Insight</div>
-  <div class="insight-band-text">
-    <strong>Most climate benefits come from better health — not carbon alone.</strong>
-    Across UK local authorities, increased physical activity and cleaner air account for the majority of monetised co-benefits,
-    outweighing transport-related trade-offs such as longer travel times. Physical Activity Increase alone contributes <strong>89.19%</strong> of total co-benefit value.
+  <table><tr>
+    <td class="insight-lbl">&#128161; Key Insight</td>
+    <td class="insight-txt"><strong>Most climate benefits come from better health &mdash; not carbon alone.</strong> Increased physical activity and cleaner air account for the majority of monetised co-benefits, outweighing transport-related trade-offs. Physical Activity Increase alone contributes <strong>89.2%</strong> of total positive co-benefit value &mdash; making this primarily a public health story.</td>
+  </tr></table>
+</div>
+
+<!-- MAIN 3-COLUMN TABLE -->
+<div class="main-wrap">
+<table class="main-table">
+<tr>
+
+<!-- ═══ COL 1: CO-BENEFIT VALUES ═══ -->
+<td style="width:33%">
+<div class="card">
+  <div class="card-hdr green">
+    <table style="width:100%;border-collapse:collapse"><tr>
+      <td style="width:8mm;vertical-align:middle;border:none;background:transparent;padding:0 2mm 0 0">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+      </td>
+      <td style="vertical-align:middle;border:none;background:transparent;padding:0"><span class="card-hdr-title">Co-benefit <em>values</em></span></td>
+    </tr></table>
+  </div>
+  <div class="card-body">
+    <p class="body-text">Monetised estimates of wider socio-economic impacts from climate actions to reach Net Zero by 2050. Values in <strong>&pound;billions</strong>. Positive values are benefits; negative values are trade-offs.</p>
+
+    <!-- BENEFIT CARDS TABLE 2 rows x 5 cols -->
+    <table class="benefit-tbl">
+    <tr>
+      <td><div class="ben-card">
+        <div class="ben-name">Physical Activity Increase</div>
+        <div class="ben-val">&pound;129.9</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Air Quality Improvements</div>
+        <div class="ben-val">&pound;48.3</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Noise Reduction</div>
+        <div class="ben-val">&pound;34.2</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Excess Cold Reduction</div>
+        <div class="ben-val">&pound;8.8</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Dietary Improvements</div>
+        <div class="ben-val">&pound;5.1</div>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="ben-card">
+        <div class="ben-name">Dampness Reduction</div>
+        <div class="ben-val">&pound;0.6</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Excess Heat Reduction</div>
+        <div class="ben-val">&pound;0.0</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Road Condition Improvements</div>
+        <div class="ben-val neg">&minus;&pound;0.3</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Road Safety Improvements</div>
+        <div class="ben-val neg">&minus;&pound;2.4</div>
+      </div></td>
+      <td><div class="ben-card">
+        <div class="ben-name">Congestion Reduction</div>
+        <div class="ben-val neg">&minus;&pound;7.6</div>
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="5"><div class="ben-card" style="background:#fff3e0;border-color:#ffe0b2">
+        <div class="ben-name">Longer Travel Times &mdash; largest trade-off</div>
+        <div class="ben-val neg" style="font-size:22pt">&minus;&pound;70.8</div>
+      </div></td>
+    </tr>
+    </table>
+
+    <div class="callout" style="margin-top:3mm"><strong>Net value: &pound;145.6bn</strong> &mdash; Positive total &pound;226.8bn outweighs trade-offs of &pound;81.2bn, delivering a substantial net benefit across all UK communities.</div>
+
+    <div class="divider"></div>
+
+    <!-- STAT BOXES -->
+    <table class="stat-tbl"><tr>
+      <td><div class="stat-box"><div class="stat-val green">&pound;226.8</div><div class="stat-lbl">Total positive value (£bn)</div></div></td>
+      <td><div class="stat-box"><div class="stat-val red">&minus;&pound;81.2</div><div class="stat-lbl">Total trade-off costs (£bn)</div></div></td>
+      <td><div class="stat-box"><div class="stat-val blue">11</div><div class="stat-lbl">Co-benefit types tracked</div></div></td>
+    </tr></table>
+  </div>
+</div>
+</td>
+
+<!-- ═══ COL 2: FLOWS BY PATHWAY ═══ -->
+<td style="width:33%">
+<div class="card">
+  <div class="card-hdr blue">
+    <table style="width:100%;border-collapse:collapse"><tr>
+      <td style="width:8mm;vertical-align:middle;border:none;background:transparent;padding:0 2mm 0 0">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 12H2M2 12l6-6M2 12l6 6"/></svg></div>
+      </td>
+      <td style="vertical-align:middle;border:none;background:transparent;padding:0"><span class="card-hdr-title">Co-benefit flows <em>by pathway</em></span></td>
+    </tr></table>
+  </div>
+  <div class="card-body">
+    <p class="body-text">Each bar shows the total modelled impact for a damage pathway. Bars to the <strong style="color:#2d7a4f">right are positive</strong>; to the <strong style="color:#b84040">left are trade-offs</strong>. Hover in the online version to see exact values.</p>
+
+    <table class="legend-tbl" style="margin-bottom:3mm"><tr>
+      <td><span class="leg-dot" style="background:#2d7a4f"></span>Positive</td>
+      <td><span class="leg-dot" style="background:#b84040"></span>Trade-off</td>
+      <td><span class="leg-dot" style="background:#3a6fa8"></span>Pathway</td>
+    </tr></table>
+
+    <table class="flow-tbl">
+      <tr>
+        <td class="flow-label">Reduced Mortality</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:52%"></div></div></td>
+        <td class="flow-val">174,628</td>
+        <td class="flow-right">Reduced Mortality</td>
+      </tr>
+      <tr>
+        <td class="flow-label">NHS cost savings</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:6%"></div></div></td>
+        <td class="flow-val">14,953</td>
+        <td class="flow-right">NHS</td>
+      </tr>
+      <tr>
+        <td class="flow-label">Sleep Disturbance</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:6%"></div></div></td>
+        <td class="flow-val">14,140</td>
+        <td class="flow-right">Sleep Disturbance</td>
+      </tr>
+      <tr>
+        <td class="flow-label">Impact on Society</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:3%"></div></div></td>
+        <td class="flow-val">5,438</td>
+        <td class="flow-right">Society</td>
+      </tr>
+      <tr>
+        <td class="flow-label">QALY</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:2%"></div></div></td>
+        <td class="flow-val">3,114</td>
+        <td class="flow-right">QALY</td>
+      </tr>
+      <tr>
+        <td class="flow-label">Amenity</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-pos" style="width:2%"></div></div></td>
+        <td class="flow-val">3,414</td>
+        <td class="flow-right">Amenity</td>
+      </tr>
+      <tr>
+        <td class="flow-label">Time Saved (cost)</td>
+        <td><div class="flow-track flow-area"><div class="flow-zero"></div><div class="flow-bar-neg" style="width:28%"></div></div></td>
+        <td class="flow-val neg">&minus;78,467</td>
+        <td class="flow-right">Time Saved</td>
+      </tr>
+    </table>
+
+    <div class="callout"><strong>Physical Activity &rarr; Reduced Mortality (&pound;133,303)</strong> is the dominant flow. Health outcomes &mdash; not carbon &mdash; drive the majority of value.</div>
+
+    <div class="divider"></div>
+
+    <table class="stat-tbl"><tr>
+      <td><div class="stat-box"><div class="stat-val green">&pound;181.1bn</div><div class="stat-lbl">Reduced Mortality pathway</div></div></td>
+      <td><div class="stat-box"><div class="stat-val blue">&pound;20.1bn</div><div class="stat-lbl">Impact on Amenity pathway</div></div></td>
+      <td><div class="stat-box"><div class="stat-val" style="color:#6a1b9a">&pound;14.1bn</div><div class="stat-lbl">Sleep Disturbance pathway</div></div></td>
+    </tr></table>
+
+    <div class="divider"></div>
+    <p class="body-text" style="margin-top:2mm"><strong>Co-benefit contribution by type</strong></p>
+
+    <table class="contrib-tbl">
+      <tr><td class="contrib-name">Physical Activity Increase</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:89%;background:#2d7a4f"></div></div></td><td class="contrib-pct" style="color:#2d7a4f">89.2%</td></tr>
+      <tr><td class="contrib-name">Air Quality Improvements</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:33%;background:#4caf78"></div></div></td><td class="contrib-pct">33.1%</td></tr>
+      <tr><td class="contrib-name">Noise Reduction</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:23%;background:#6a1b9a"></div></div></td><td class="contrib-pct">23.5%</td></tr>
+      <tr><td class="contrib-name">Excess Cold Reduction</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:6%;background:#0288d1"></div></div></td><td class="contrib-pct">6.0%</td></tr>
+      <tr><td class="contrib-name">Dietary Improvements</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:3.5%;background:#e67e22"></div></div></td><td class="contrib-pct">3.5%</td></tr>
+      <tr><td class="contrib-name">Road Safety Improvements</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:1.7%;background:#b84040"></div></div></td><td class="contrib-pct" style="color:#b84040">&minus;1.7%</td></tr>
+      <tr><td class="contrib-name">Congestion Reduction</td><td class="contrib-track-cell"><div class="contrib-track"><div class="contrib-fill" style="width:5.2%;background:#c0392b"></div></div></td><td class="contrib-pct" style="color:#b84040">&minus;5.2%</td></tr>
+    </table>
+  </div>
+</div>
+</td>
+
+<!-- ═══ COL 3: LA RANKING + ABOUT ═══ -->
+<td style="width:33%">
+<div class="card" style="margin-bottom:4mm">
+  <div class="card-hdr amber">
+    <table style="width:100%;border-collapse:collapse"><tr>
+      <td style="width:8mm;vertical-align:middle;border:none;background:transparent;padding:0 2mm 0 0">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      </td>
+      <td style="vertical-align:middle;border:none;background:transparent;padding:0"><span class="card-hdr-title">Local authority <em>health impacts</em></span></td>
+    </tr></table>
+  </div>
+  <div class="card-body">
+    <p class="body-text">Health impact values from climate action co-benefits per local authority (&pound;billion). Strong results for rural areas like Cornwall show benefits are <strong>not limited to major urban centres</strong>.</p>
+    <table class="la-tbl">
+      <tr><th style="width:6mm">#</th><th>Local Authority</th><th style="text-align:right">Health (&pound;bn)</th><th style="width:25mm">Share</th></tr>
+      <tr><td style="color:#999;font-size:7pt">1</td><td class="la-name">Birmingham</td><td class="la-val">&pound;2.7</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:100%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">2</td><td class="la-name">Cornwall</td><td class="la-val">&pound;2.2</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:81%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">3</td><td class="la-name">Leeds</td><td class="la-val">&pound;2.1</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:78%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">4</td><td class="la-name">Wiltshire</td><td class="la-val">&pound;1.7</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:63%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">5</td><td class="la-name">Cheshire East</td><td class="la-val">&pound;1.5</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">6</td><td class="la-name">Bromley</td><td class="la-val">&pound;1.5</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">7</td><td class="la-name">Barnet</td><td class="la-val">&pound;1.5</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">8</td><td class="la-name">Sheffield</td><td class="la-val">&pound;1.4</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:52%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">9</td><td class="la-name">Bradford</td><td class="la-val">&pound;1.4</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:52%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">10</td><td class="la-name">Glasgow City</td><td class="la-val">&pound;1.3</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">11</td><td class="la-name">City of Edinburgh</td><td class="la-val">&pound;1.3</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
+      <tr><td style="color:#999;font-size:7pt">12</td><td class="la-name">Croydon</td><td class="la-val">&pound;1.3</td><td class="la-bar-wrap"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
+    </table>
   </div>
 </div>
 
-<!-- MAIN CONTENT GRID -->
-<div class="main">
-
-  <!-- COL 1: CO-BENEFIT VALUES CARD -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-header-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-      </div>
-      <div class="card-title">Co-benefit <em>values</em></div>
-    </div>
-    <div class="card-body">
-      <p class="body-text">Monetised estimates of the wider socio-economic impacts from climate actions to reach Net Zero by 2050. Values are in <strong>£billions</strong>.</p>
-      <div class="benefit-grid">
-
-        <div class="benefit-card">
-          <div class="benefit-name">Physical Activity Increase</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£129.9</div>
-            <div class="benefit-icon" style="background:#e8f5ed">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="1.8" stroke-linecap="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><circle cx="15" cy="5" r="1.2" fill="#2d7a4f" stroke="none"/><path d="M15 6.2l-3 3.8H7.5l3 5 4-2.5"/><path d="M18.5 14.5L15 6.2"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Air Quality Improvements</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£48.3</div>
-            <div class="benefit-icon" style="background:#e8f5ed">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="1.8" stroke-linecap="round"><path d="M12 7c1.5-3 5.5-3 5.5 0s-3 3-8.5 3H3"/><path d="M12 17c1.5 3 5.5 3 5.5 0s-3-3-8.5-3H3"/><path d="M5 12h11"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Noise Reduction</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£34.2</div>
-            <div class="benefit-icon" style="background:#ede7f6">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#6a1b9a" stroke-width="1.8" stroke-linecap="round"><path d="M6 9a6 6 0 1 1 10.7 3.7c-.8 1-1.7 1.5-1.7 3.3v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1"/><path d="M10 17h4"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Excess Cold Reduction</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£8.8</div>
-            <div class="benefit-icon" style="background:#e3f2fd">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#0288d1" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4"/><path d="M2 12h20"/><circle cx="12" cy="12" r="1.5" fill="#0288d1" stroke="none"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Dietary Improvements</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£5.1</div>
-            <div class="benefit-icon" style="background:#fff8e1">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="6" width="10" height="13" rx="2"/><path d="M7 9h10"/><path d="M9 4h6v2H9z"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Dampness Reduction</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£0.6</div>
-            <div class="benefit-icon" style="background:#e8f0fe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1a6fa8" stroke-width="1.8" stroke-linecap="round"><path d="M3 10.5L12 3l9 7.5"/><rect x="6" y="10" width="12" height="11"/><path d="M9 21v-5h6v5"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Excess Heat Reduction</div>
-          <div class="benefit-row">
-            <div class="benefit-val">£0.0</div>
-            <div class="benefit-icon" style="background:#fce4ec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#c62828" stroke-width="1.8" stroke-linecap="round"><path d="M14 14.5V5a2 2 0 0 0-4 0v9.5a4 4 0 1 0 4 0z"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Road Condition Improvements</div>
-          <div class="benefit-row">
-            <div class="benefit-val neg">-£0.3</div>
-            <div class="benefit-icon" style="background:#efebe9">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#5d4037" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="18" height="3" rx="1"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Road Safety Improvements</div>
-          <div class="benefit-row">
-            <div class="benefit-val neg">-£2.4</div>
-            <div class="benefit-icon" style="background:#f3e5f5">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#7b1fa2" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="8" width="10" height="7" rx="1.5"/><path d="M12 10l6-3v8l-6-3z"/><line x1="7" y1="15" x2="7" y2="19"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-name">Congestion Reduction</div>
-          <div class="benefit-row">
-            <div class="benefit-val neg">-£7.6</div>
-            <div class="benefit-icon" style="background:#fdeaea">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3L2 21h20L12 3z"/><line x1="12" y1="10" x2="12" y2="15"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card" style="grid-column: span 2">
-          <div class="benefit-name">Longer Travel Times (trade-off)</div>
-          <div class="benefit-row">
-            <div class="benefit-val neg">-£70.8</div>
-            <div class="benefit-icon" style="background:#fff3e0">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="1.8" stroke-linecap="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><circle cx="15" cy="5" r="1.2" fill="#e65100" stroke="none"/><path d="M15 6.2l-3 3.8H7.5l3 5 4-2.5"/><path d="M18.5 14.5L15 6.2"/></svg>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- Net value callout -->
-      <div class="callout" style="margin-top:4mm">
-        <strong>Net value: £145.6bn</strong> — Positive total £226.8bn outweighs trade-offs of £81.2bn, delivering a net benefit of £145.6bn by 2050.
-      </div>
-    </div>
+<div class="card">
+  <div class="card-hdr teal">
+    <table style="width:100%;border-collapse:collapse"><tr>
+      <td style="width:8mm;vertical-align:middle;border:none;background:transparent;padding:0 2mm 0 0">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      </td>
+      <td style="vertical-align:middle;border:none;background:transparent;padding:0"><span class="card-hdr-title">About the <em>Atlas</em></span></td>
+    </tr></table>
   </div>
-
-  <!-- COL 2: FLOW BY PATHWAY -->
-  <div class="card">
-    <div class="card-header blue">
-      <div class="card-header-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 12H2M2 12l6-6M2 12l6 6"/></svg>
-      </div>
-      <div class="card-title">Co-benefit flows <em>by pathway</em></div>
-    </div>
-    <div class="card-body">
-      <p class="body-text">Each horizontal bar shows the total modelled impact for an impact pathway, broken down by co-benefit type. Bars to the right are <strong style="color:#2d7a4f">positive impacts</strong>; bars to the left are <strong style="color:#b84040">negative trade-offs</strong>.</p>
-
-      <div class="legend" style="margin-bottom:3mm">
-        <div class="legend-item"><div class="legend-dot" style="background:#2d7a4f"></div>Positive co-benefit</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#b84040"></div>Negative / trade-off</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#3a6fa8"></div>Damage pathway</div>
-      </div>
-
-      <div class="sankey-area">
-        <!-- Reduced Mortality -->
-        <div class="sankey-row">
-          <div class="sankey-label">Reduced Mortality</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:52%"></div>
-          </div>
-          <div class="sankey-val">174,628</div>
-          <div class="sankey-right-label">Reduced Mortality</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">Impact on Amenity</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:8%"></div>
-          </div>
-          <div class="sankey-val">3,414</div>
-          <div class="sankey-right-label">Amenity</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">Sleep Disturbance</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:7%"></div>
-          </div>
-          <div class="sankey-val">14,140</div>
-          <div class="sankey-right-label">Sleep Disturbance</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">QALY</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:3%"></div>
-          </div>
-          <div class="sankey-val">3,114</div>
-          <div class="sankey-right-label">QALY</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">NHS</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:6%"></div>
-          </div>
-          <div class="sankey-val">14,953</div>
-          <div class="sankey-right-label">NHS</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">Impact on Society</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar pos" style="width:3%"></div>
-          </div>
-          <div class="sankey-val">5,438</div>
-          <div class="sankey-right-label">Society</div>
-        </div>
-        <div class="sankey-row">
-          <div class="sankey-label">Time Saved</div>
-          <div class="sankey-bar-wrap">
-            <div class="sankey-zero"></div>
-            <div class="sankey-bar neg" style="width:28%"></div>
-          </div>
-          <div class="sankey-val neg">-78,467</div>
-          <div class="sankey-right-label">Time Saved</div>
-        </div>
-      </div>
-
-      <div class="callout" style="margin-top:4mm">
-        <strong>Physical Activity Increase → Reduced Mortality (£133,303)</strong> is the dominant flow — health outcomes, not carbon savings, drive the majority of co-benefit value.
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="stat-boxes" style="margin-top:3mm">
-        <div class="stat-box">
-          <div class="stat-box-val">£181.1bn</div>
-          <div class="stat-box-label">Reduced Mortality pathway value</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-val">£20.1bn</div>
-          <div class="stat-box-label">Impact on Amenity pathway</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-val">£14.1bn</div>
-          <div class="stat-box-label">Reduced Sleep Disturbance</div>
-        </div>
-      </div>
-    </div>
+  <div class="card-body">
+    <p class="body-text">The <strong>UK Co-Benefits Atlas</strong> quantifies the wider societal benefits of climate action across all UK local authorities &mdash; going beyond carbon to capture health, wellbeing, and economic value from actions to reach Net Zero by 2050.</p>
+    <div class="callout">Benefits are <strong>not limited to major cities</strong>. Areas like Cornwall show significant co-benefits reflecting population size and exposure levels across all community types.</div>
+    <table class="stat-tbl"><tr>
+      <td><div class="stat-box"><div class="stat-val blue">361</div><div class="stat-lbl">UK local authorities modelled</div></div></td>
+      <td><div class="stat-box"><div class="stat-val green">11</div><div class="stat-lbl">Co-benefit types tracked</div></div></td>
+      <td><div class="stat-box"><div class="stat-val" style="color:#6a1b9a">8</div><div class="stat-lbl">Impact pathways mapped</div></div></td>
+    </tr></table>
+    <p class="body-text" style="margin-top:3mm;font-size:7.5pt;color:#999">Values represent modelled estimates of wider socio-economic impacts to reach Net Zero by 2050. Not direct financial savings. All values in &pound;billions.</p>
   </div>
+</div>
+</td>
 
-  <!-- COL 3: LA RANKING + CONTRIBUTION -->
-  <div class="card">
-    <div class="card-header amber">
-      <div class="card-header-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <div class="card-title">Local authority <em>health impacts</em></div>
-    </div>
-    <div class="card-body">
-      <p class="body-text">Health impact values from climate action co-benefits per local authority (£billion). Higher values indicate greater estimated health benefits from climate actions.</p>
+</tr>
+</table>
 
-      <table class="la-table">
-        <tr><th>#</th><th>Local Authority</th><th style="text-align:right">Health (£bn)</th><th style="width:30mm">Share</th></tr>
-        <tr><td class="la-rank">1</td><td class="la-name">Birmingham</td><td class="la-val">£2.7</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:100%"></div></div></td></tr>
-        <tr><td class="la-rank">2</td><td class="la-name">Cornwall</td><td class="la-val">£2.2</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:81%"></div></div></td></tr>
-        <tr><td class="la-rank">3</td><td class="la-name">Leeds</td><td class="la-val">£2.1</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:78%"></div></div></td></tr>
-        <tr><td class="la-rank">4</td><td class="la-name">Wiltshire</td><td class="la-val">£1.7</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:63%"></div></div></td></tr>
-        <tr><td class="la-rank">5</td><td class="la-name">Cheshire East</td><td class="la-val">£1.5</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
-        <tr><td class="la-rank">6</td><td class="la-name">Bromley</td><td class="la-val">£1.5</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
-        <tr><td class="la-rank">7</td><td class="la-name">Barnet</td><td class="la-val">£1.5</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:56%"></div></div></td></tr>
-        <tr><td class="la-rank">8</td><td class="la-name">Sheffield</td><td class="la-val">£1.4</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:52%"></div></div></td></tr>
-        <tr><td class="la-rank">9</td><td class="la-name">Bradford</td><td class="la-val">£1.4</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:52%"></div></div></td></tr>
-        <tr><td class="la-rank">10</td><td class="la-name">Glasgow City</td><td class="la-val">£1.3</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
-        <tr><td class="la-rank">11</td><td class="la-name">City of Edinburgh</td><td class="la-val">£1.3</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
-        <tr><td class="la-rank">12</td><td class="la-name">Croydon</td><td class="la-val">£1.3</td><td class="la-bar-cell"><div class="la-bar-track"><div class="la-bar-fill" style="width:48%"></div></div></td></tr>
-      </table>
-
-      <div class="divider"></div>
-
-      <p class="body-text" style="margin-top:3mm"><strong>Co-benefit contribution by type (%)</strong></p>
-
-      <div class="contrib-row">
-        <div class="contrib-name">Physical Activity Increase</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:89%;background:#2d7a4f"></div></div>
-        <div class="contrib-pct" style="color:#2d7a4f">89.2%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Air Quality Improvements</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:33%;background:#4caf78"></div></div>
-        <div class="contrib-pct">33.1%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Noise Reduction</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:23%;background:#6a1b9a"></div></div>
-        <div class="contrib-pct">23.5%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Excess Cold Reduction</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:6%;background:#0288d1"></div></div>
-        <div class="contrib-pct">6.0%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Dietary Improvements</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:3.5%;background:#e67e22"></div></div>
-        <div class="contrib-pct">3.5%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Road Safety Improvements</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:1.7%;background:#b84040"></div></div>
-        <div class="contrib-pct" style="color:#b84040">-1.7%</div>
-      </div>
-      <div class="contrib-row">
-        <div class="contrib-name">Congestion Reduction</div>
-        <div class="contrib-bar-track"><div class="contrib-bar-fill" style="width:5.2%;background:#c0392b"></div></div>
-        <div class="contrib-pct" style="color:#b84040">-5.2%</div>
-      </div>
-    </div>
+<!-- BOTTOM ROW: PATHWAY TABLE FULL WIDTH -->
+<div class="card" style="margin-top:0">
+  <div class="card-hdr purple">
+    <table style="width:100%;border-collapse:collapse"><tr>
+      <td style="width:8mm;vertical-align:middle;border:none;background:transparent;padding:0 2mm 0 0">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      </td>
+      <td style="vertical-align:middle;border:none;background:transparent;padding:0"><span class="card-hdr-title">Impact pathway <em>framework</em> &mdash; how co-benefits are translated into monetised values</span></td>
+    </tr></table>
   </div>
-
-  <!-- BOTTOM ROW: PATHWAYS TABLE + METHODOLOGY NOTE -->
-  <div class="card span-2">
-    <div class="card-header purple">
-      <div class="card-header-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      </div>
-      <div class="card-title">Impact pathway <em>framework</em></div>
-    </div>
-    <div class="card-body">
-      <p class="body-text">Co-benefits are translated into monetised values through eight impact pathways, each with a defined formula and evidence base.</p>
-      <table class="pathway-table">
-        <tr>
-          <th style="width:40mm">Pathway</th>
-          <th>Description</th>
-          <th style="width:45mm">Formula</th>
-          <th style="width:18mm">Category</th>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Reduced mortality</span></td>
-          <td>A change in exposure leads to a reduction in all-cause or cause-specific mortality risk, for example through improved air quality or increased physical activity.</td>
-          <td style="font-family:monospace;font-size:7.5pt">ΔDeaths = P × (1 − e^(−β·ΔE))<br>Value = ΔDeaths × VSL/VOLY</td>
-          <td><span class="pw-cat health">Health</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">QALY</span></td>
-          <td>Improvements in health outcomes increase quality-adjusted life expectancy without necessarily preventing death.</td>
-          <td style="font-family:monospace;font-size:7.5pt">QALYs = ΔHealth × Utility weight<br>Value = QALYs × £ per QALY</td>
-          <td><span class="pw-cat health">Health</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">NHS cost savings</span></td>
-          <td>Reduced incidence or severity of illness lowers healthcare utilisation and treatment costs.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Value = ΔCases × Unit treatment cost</td>
-          <td><span class="pw-cat health">Health</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Time saved / congestion</span></td>
-          <td>Reduced congestion or improved transport efficiency results in travel time savings for users.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Value = ΔTime × Value of time × Users</td>
-          <td><span class="pw-cat damage">Damage</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Noise / sleep disturbance</span></td>
-          <td>Changes in environmental noise exposure affect wellbeing through reduced annoyance or improved sleep quality.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Value = ΔExposure × β × WTP</td>
-          <td><span class="pw-cat damage">Damage</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Amenity</span></td>
-          <td>Improvements to the local environment enhance comfort, attractiveness, or perceived quality of place.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Value = ΔAmenity outcome × Unit value</td>
-          <td><span class="pw-cat damage">Damage</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Societal impacts</span></td>
-          <td>Wider social effects such as community cohesion not captured through health or transport pathways.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Value = ΔOutcome × Unit social value</td>
-          <td><span class="pw-cat damage">Damage</span></td>
-        </tr>
-        <tr>
-          <td><span class="pw-name">Disbenefits</span></td>
-          <td>Some interventions introduce negative effects such as disruption, inconvenience, or reduced comfort.</td>
-          <td style="font-family:monospace;font-size:7.5pt">Disbenefit = ΔExposure × Disutility value</td>
-          <td><span class="pw-cat damage">Damage</span></td>
-        </tr>
-      </table>
-    </div>
+  <div class="card-body">
+    <table class="pw-tbl">
+      <tr><th style="width:18%">Pathway</th><th style="width:32%">Description</th><th style="width:22%">Formula</th><th style="width:22%">Annotation</th><th style="width:6%">Type</th></tr>
+      <tr><td><span class="pw-name">Reduced mortality</span></td><td>A change in exposure leads to a reduction in all-cause or cause-specific mortality risk, through improved air quality or increased physical activity.</td><td><div class="formula-cell">&Delta;Deaths = P &times; (1 &minus; e^(&minus;&beta;&middot;&Delta;E))<br>Value = &Delta;Deaths &times; VSL/VOLY</div></td><td>&Delta;E = change in exposure. &beta; = dose-response coefficient. Monetised using value of statistical life or life year.</td><td><span class="pw-cat h">Health</span></td></tr>
+      <tr><td><span class="pw-name">QALY</span></td><td>Improvements in health outcomes increase quality-adjusted life expectancy without necessarily preventing death.</td><td><div class="formula-cell">QALYs = &Delta;Health &times; Utility weight<br>Value = QALYs &times; &pound; per QALY</div></td><td>Converted using utility weights. Monetised using standard UK NICE thresholds reflecting willingness to pay for health gains.</td><td><span class="pw-cat h">Health</span></td></tr>
+      <tr><td><span class="pw-name">NHS cost savings</span></td><td>Reduced incidence or severity of illness lowers healthcare utilisation and treatment costs borne by the health system.</td><td><div class="formula-cell">Value = &Delta;Cases &times; Unit treatment cost</div></td><td>&Delta;Cases = avoided cases of illness. Unit costs from healthcare reference sources. Reflects direct savings to the NHS.</td><td><span class="pw-cat h">Health</span></td></tr>
+      <tr><td><span class="pw-name">Time saved / congestion</span></td><td>Reduced congestion or improved transport efficiency results in travel time savings for users.</td><td><div class="formula-cell">Value = &Delta;Time &times; Value of time &times; Users</div></td><td>&Delta;Time = average time change per user. Values of time differentiated by journey purpose per DfT guidance.</td><td><span class="pw-cat d">Damage</span></td></tr>
+      <tr><td><span class="pw-name">Noise / sleep disturbance</span></td><td>Changes in environmental noise exposure affect wellbeing through reduced annoyance or improved sleep quality.</td><td><div class="formula-cell">Value = &Delta;Exposure &times; &beta; &times; WTP</div></td><td>Exposure changes translated into wellbeing impacts using response functions. Monetised using willingness-to-pay from stated preference studies.</td><td><span class="pw-cat d">Damage</span></td></tr>
+      <tr><td><span class="pw-name">Amenity</span></td><td>Improvements to the local environment enhance comfort, attractiveness, or perceived quality of place.</td><td><div class="formula-cell">Value = &Delta;Amenity &times; Unit amenity value</div></td><td>Quantified using proxy indicators and monetised using accepted environmental valuation metrics.</td><td><span class="pw-cat d">Damage</span></td></tr>
+      <tr><td><span class="pw-name">Societal impacts</span></td><td>Wider social effects such as community cohesion not captured through health or transport pathways.</td><td><div class="formula-cell">Value = &Delta;Outcome &times; Unit social value</div></td><td>Monetised using established social valuation approaches to capture non-market benefits.</td><td><span class="pw-cat d">Damage</span></td></tr>
+      <tr><td><span class="pw-name">Disbenefits</span></td><td>Some interventions introduce negative effects such as disruption, inconvenience, or reduced comfort.</td><td><div class="formula-cell">Disbenefit = &Delta;Exposure &times; Disutility value</div></td><td>Disutility values represent negative welfare impacts. Ensures net impacts reflect both benefits and costs, reducing optimism bias.</td><td><span class="pw-cat d">Damage</span></td></tr>
+    </table>
   </div>
+</div>
 
-  <div class="card">
-    <div class="card-header" style="background:#2d7a4f">
-      <div class="card-header-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <div class="card-title">About the <em>Atlas</em></div>
-    </div>
-    <div class="card-body">
-      <p class="body-text">The <strong>UK Co-Benefits Atlas</strong> quantifies the wider societal benefits of climate action across all UK local authorities — going beyond carbon to capture health, wellbeing, and economic value.</p>
-
-      <div class="divider"></div>
-
-      <p class="body-text"><strong>What are co-benefits?</strong><br>
-      Co-benefits are the positive (and sometimes negative) side-effects of climate actions that benefit communities beyond their direct contribution to reducing emissions. They include improvements in air quality, physical health, noise levels, housing quality, and road safety.</p>
-
-      <div class="divider"></div>
-
-      <p class="body-text"><strong>How are values calculated?</strong><br>
-      Each co-benefit is linked to one or more impact pathways using established epidemiological and economic evidence. Values are monetised using HM Treasury Green Book guidance, NICE QALY thresholds, and WHO dose-response functions.</p>
-
-      <div class="divider"></div>
-
-      <div class="callout">
-        <strong>Benefits are not limited to major urban centres.</strong> Strong results for areas like Cornwall show that significant co-benefits reach communities of all sizes, reflecting population size and exposure levels.
-      </div>
-
-      <div class="divider"></div>
-
-      <p class="body-text" style="font-size:8pt;color:#999;margin-top:2mm">
-        Values represent modelled estimates of wider socio-economic impacts from actions to reach Net Zero by 2050. They are not direct financial savings or funding allocations. All values in £billions. Data: 2025–2050 modelled projection.
-      </p>
-
-      <div class="stat-boxes" style="margin-top:4mm">
-        <div class="stat-box">
-          <div class="stat-box-val">361</div>
-          <div class="stat-box-label">UK local authorities modelled</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-val blue">11</div>
-          <div class="stat-box-label">Co-benefit types tracked</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-val" style="color:#2d7a4f">8</div>
-          <div class="stat-box-label">Impact pathways modelled</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /main -->
+</div><!-- /main-wrap -->
 
 <!-- FOOTER -->
 <div class="footer">
-  <div class="footer-left">
-    <div class="footer-title">UK Co-Benefits Atlas · Co-benefits of Climate Actions and their Monetised Values (UK) 2025–2050</div>
-    <div class="footer-sub">Datafest Exhibition 2025 · Values in £billions · Modelled projections · Not direct financial commitments</div>
-  </div>
-  <div class="footer-logos">
-    <div class="footer-logo-box">UK Co-Benefits Atlas</div>
-    <div class="footer-logo-box">Datafest 2025</div>
-    <div class="footer-logo-box">Net Zero · 2050</div>
-  </div>
-  <div class="footer-qr">
-    QR code<br>to Atlas
-  </div>
+  <table><tr>
+    <td>
+      <div class="ft">UK Co-Benefits Atlas &middot; Co-benefits of Climate Actions and their Monetised Values (UK) 2025&ndash;2050</div>
+      <div class="ft-sub">Datafest Exhibition 2025 &middot; Values in &pound;billions &middot; Modelled projections &middot; Not direct financial commitments &middot; 361 local authorities &middot; 11 co-benefit types &middot; 8 impact pathways</div>
+    </td>
+    <td style="text-align:right;white-space:nowrap;vertical-align:middle">
+      <span class="logo-box">UK Co-Benefits Atlas</span>
+      <span class="logo-box">Datafest 2025</span>
+      <span class="logo-box">Net Zero 2050</span>
+      &nbsp;&nbsp;
+      <div class="qr-box">QR<br>code<br>here</div>
+    </td>
+  </tr></table>
 </div>
 
 </body>
